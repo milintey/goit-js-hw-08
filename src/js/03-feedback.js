@@ -23,7 +23,7 @@ function onFormInput (event) {
 function onFormSubmit(event) {
     event.preventDefault();
     event.currentTarget.reset();
-    localStorage.clear();
+    localStorage.removeItem(FEEDBACK);
 
     console.log(formData);
 
@@ -40,12 +40,12 @@ function onSaveMessage() {
         input.value = "";
         textarea.value = "";
     } else if (save.email === undefined && save.message !== undefined) {
-        input.value = "";
+        input.value = ""
         textarea.value = save.message;
     } else if (save.email !== undefined && save.message === undefined) {
         input.value = save.email;
         textarea.value = "";
-    } else if (save.email !== undefined && save.message !== undefined) {
+    } else {
         input.value = save.email;
         textarea.value = save.message;
     }
